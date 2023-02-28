@@ -34,6 +34,39 @@ console.log(res);
 console.log(res1)
 
 
+function setNumbers() {
+    const num = Array.from(arguments);
+    console.log(num);
+    return function whatDo(znak) {
+        if ('+' === znak) {
+      let sum = num.reduce((a, b) => a += b, 0);
+      return `${num.join(" + ")} = ${sum}`;
+    }
+    
+    else if ('-' === znak) {
+      let diff = num.reduce((a, b) => a -= b, num[0] * 2);
+      return `${num.join(" - ")} = ${diff}`;
+    }
+    
+    else if ('*' === znak) {
+      let mult = num.reduce((a, b) => a *= b, 1);
+    return `${num.join(" * ")} = ${mult}`;
+  }
+    
+  else if ('/' === znak) {
+      let div = num.reduce((a, b) => a /= b, num[0] ** 2);
+    return `${num.join(" / ")} = ${div}`;
+  }
+    }
+}
+
+let whatDo = setNumbers(10, 2, 3);
+let whatDo_1 = setNumbers(3,1);
+
+console.log(whatDo('-'));
+console.log(whatDo_1('+'));
+
+
 
 /*let znak = '-';
 
