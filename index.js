@@ -1,4 +1,41 @@
-let znak = '-';
+function setMath(znak) {
+  return function funcWithMath() {
+    const num = Array.from(arguments);
+    console.log(num);
+    if ('+' === znak) {
+      let sum = num.reduce((a, b) => a += b, 0);
+      return `${num.join(" + ")} = ${sum}`;
+    }
+    
+    else if ('-' === znak) {
+      let diff = num.reduce((a, b) => a -= b, num[0] * 2);
+      return `${num.join(" - ")} = ${diff}`;
+    }
+    
+    else if ('*' === znak) {
+      let mult = num.reduce((a, b) => a *= b, 1);
+    return `${num.join(" * ")} = ${mult}`;
+  }
+    
+  else if ('/' === znak) {
+      let div = num.reduce((a, b) => a /= b, num[0] ** 2);
+    return `${num.join(" / ")} = ${div}`;
+  }
+  }
+}
+
+let funcWithMath = setMath('-');
+let funcWithMath1 = setMath('/');
+
+let res = funcWithMath(10, 2, 3);
+let res1 = funcWithMath1(100, 2, 5);
+
+console.log(res);
+console.log(res1)
+
+
+
+/*let znak = '-';
 
 function funcWithMath() {
   const num = Array.from(arguments);
@@ -103,4 +140,4 @@ function setNumbers() {
     }
 }
 
-console.log(whatDo('-'));
+console.log(whatDo('-'));*/
